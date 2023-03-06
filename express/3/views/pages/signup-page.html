@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signup page</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <h1>signup page</h1>
+    <span class="alertMsg"></span>
+
+    <form>
+
+        <div class="container">
+
+            <label for="firsname"><b>firsname</b></label>
+            <input type="text" placeholder="Enter firsname" name="firsname" class="registerInput" required>
+
+            <label for="lastname"><b>lastname</b></label>
+            <input type="text" placeholder="Enter lastname" name="lastname" class="registerInput" required>
+
+            <label for="username"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="username" class="registerInput" required>
+
+            <label for="password"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="password" class="registerInput" required>
+
+            <button onclick="signup(event)">signup</button>
+
+        </div>
+
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script src="/js/main.js"></script>
+</body>
+
+</html>
