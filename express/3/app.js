@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const authRouter = require("./routes/auth");
+const adminRouter = require("./routes/admin");
 const path = require("path");
 
 
@@ -9,6 +10,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.static('public'));
 
 app.use("/auth", authRouter);
+app.use("/admin", adminRouter);
 
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "./views/index.html"))

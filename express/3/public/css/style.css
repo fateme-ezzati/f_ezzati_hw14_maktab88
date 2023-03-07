@@ -21,13 +21,27 @@ body {
 
 .addHeader {
     width: 90%;
-    height: 40px;
+    padding: 10px 20px;
     margin: 30px auto;
-    border: 1px solid black;
+    background-color: rgba(70, 68, 68, 0.932);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    text-transform: capitalize;
+    border-radius: 5px;
+}
+
+.addHeader>button{
+    padding: 3px 10px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    cursor: pointer;
 }
 
 table{
-    margin: 0 auto;
+    margin: 20px auto;
 }
 
 table,
@@ -55,3 +69,20 @@ th {
 tr:nth-child(even) {
     background-color: rgb(213 201 201 / 82%);
 }
+
+.button {
+    cursor: pointer;
+    border: 1px solid #bbb;
+    padding: 8px 16px;
+    text-transform: capitalize;
+    background-color: #e5302b;
+    color: white;
+    margin-left: 8px;
+    border: unset;
+    border-radius: 5px;
+  }
+
+  .addData {
+    background-color: #4caf50;
+    color: white;
+  }
