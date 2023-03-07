@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const fs = require("fs");
 const {
-	writeFile: writeFileNormal
+	writeFile
 } = require('node:fs');
 const path = require("path");
 const users = require("../db/users-data.json");
@@ -36,32 +36,35 @@ router.get("/get-user/:username", (req,res)=>{
 
 
 // remove product
-router.delete("/remove-user/:username", (req, res) => {
-
-    const usrsTemp = users.filter(item => item.username != req.params.username);
-4
-    writeFile(path.join(__dirname, "../db/users-data.json"),JSON.stringify(usrsTemp))
+router.delete("/remove-user/:username", async(req, res) => {
+    
 
     // try {
-    //     fs.writeFileSync(path.join(__dirname, "../db/products-data.json"), JSON.stringify(productsTemp));
-    // } catch (err) {
-    //     console.log(err);
-    //     return res.status(400).send("Try again later!")
-    // };
+
+	// 	const user = users.find(user => user.username === req.params.username);
+	// 	if (!user) throw new Error(`user: ${req.params.username} not Found!`);
+
+    //     const usrsTemp = users.filter(item => item.username != req.params.username);
 
 
-    // res.send("remove product");
+	// 	await writeFile('./users-data.json', JSON.stringify(usrsTemp));
+	// } catch (error) {
+	// 	console.log(error?.message);
+	// }
+
+    const usrsTemp = users.filter(item => item.username != req.params.username);
+    try {
+        fs.writeFileSync(path.join(__dirname, "../db/users-data.json"), JSON.stringify(usrsTemp));
+    } catch (err) {
+        console.log(err);
+        return res.status(400).send("Try again later!")
+    };
+
+
+    res.send("remove user");
+    
 });
 
-const writeFile = (path, data) => {
-	return new Promise((resolve, reject) => {
-		writeFileNormal(path, data, err => {
-			if (!!err) return reject(err).status(400);
-
-			resolve(data);
-		});
-	});
-};
 
 
 module.exports = router;
